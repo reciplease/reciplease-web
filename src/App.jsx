@@ -2,12 +2,14 @@ import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+
 function App() {
   const [ping, setPing] = useState("");
 
   useEffect(() => {
     fetch(
-      "/api/ping",
+      `${process.env.API}/api/ping`,
       {
         method: "GET",
       }
