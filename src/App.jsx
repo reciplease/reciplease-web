@@ -9,14 +9,14 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `${process.env.API}/api/ping`,
+      `${process.env.REACT_APP_API_URL}/api/ingredients`,
       {
         method: "GET",
       }
     )
       .then(res => res.json())
       .then(response => {
-        setPing(response.express);
+        setPing(response.length);
       })
       .catch(error => console.log(error));
   }, []);
