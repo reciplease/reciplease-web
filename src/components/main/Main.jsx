@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './body.module.css';
+import styles from './main.module.css';
 import Navigation from "../navigation/Navigation";
 import Content from "../content/Content";
 
