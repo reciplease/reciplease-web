@@ -1,0 +1,15 @@
+.nav {
+    background: var(--secondary-colour);
+    padding: 1rem;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .nav {
+        flex-grow: 1;
+    }
+}

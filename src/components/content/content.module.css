@@ -1,0 +1,5 @@
+.article {
+    flex-grow: 1;
+    background-color: white;
+    padding: 1rem;
+}
