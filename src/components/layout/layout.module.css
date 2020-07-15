@@ -4,15 +4,16 @@
     flex-direction: column;
 }
 
-.container:first-child {
-    flex-shrink: 0;
-}
-
-main {
+.container > *:nth-child(n) {
     flex: 1 0 auto;
 }
 
-.container:last-child {
+.container > *:first-child {
+    flex: initial;
     flex-shrink: 0;
-    align-self: flex-end;
+}
+
+.container > *:last-child {
+    flex: initial;
+    flex-shrink: 0;
 }
