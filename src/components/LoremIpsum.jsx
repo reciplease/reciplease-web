@@ -8,7 +8,7 @@ function repeatParagraph(repetitions, main) {
   return repeatedMain;
 }
 
-const LoremIpsum = ({paragraphs = 2}) => {
+export default ({paragraphs = 2}) => {
   // noinspection SpellCheckingInspection
   const start = `Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
       tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
@@ -32,5 +32,3 @@ const LoremIpsum = ({paragraphs = 2}) => {
     {repeatedMain}
   </>;
 }
-
-export default LoremIpsum;

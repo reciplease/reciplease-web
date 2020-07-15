@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './layout.module.css';
 
-const Layout = ({children}) => {
+export default ({children}) => {
   return (
     <div className={styles.container}>
       {children[0]}
@@ -10,5 +10,3 @@ const Layout = ({children}) => {
     </div>
   )
 }
-
-export default Layout;
