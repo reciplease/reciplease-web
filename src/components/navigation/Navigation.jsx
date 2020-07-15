@@ -3,7 +3,7 @@ import styles from './navigation.module.css';
 
 export default () => (
   <nav className={styles.nav}>
-    <ul>
+    <ul className={styles.navList}>
       <li><a href="/">Ingredients</a></li>
       <li><a href="/">Inventory</a></li>
       <li><a href="/">Recipes</a></li>
