@@ -6,7 +6,7 @@ export default () => {
   return (
     <article className={styles.article}>
       <h1>Content</h1>
-      <LoremIpsum paragraphs={5}/>
+      <LoremIpsum paragraphs={10}/>
     </article>
   )
 }
