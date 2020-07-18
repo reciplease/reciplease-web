@@ -8,6 +8,25 @@
     padding: 0;
 }
 
+a:link, a:visited {
+    background-color: var(--primary-colour);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    width: 100%;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: var(--active);
+}
+
 @media (max-width: 600px) {
     .nav {
         flex-grow: 1;
