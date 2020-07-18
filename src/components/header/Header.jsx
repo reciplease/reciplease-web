@@ -3,6 +3,6 @@ import styles from './header.module.css';
 
 export default () => (
   <header className={styles.header}>
-    <h2>Reciplease</h2>
+    <h2 className={styles.title}>Reciplease</h2>
   </header>
 );
