@@ -4,3 +4,12 @@
     text-align: center;
     color: white;
 }
+
+.smaller {
+    font-size: small;
+}
+
+.smaller > a {
+    text-decoration: underline;
+    color: white;
+}
