@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import styles from './navigation.module.css';
 
 export default () => (
   <nav className={styles.nav}>
     <ul className={styles.list}>
-      <li><a href="/">Inventory</a></li>
-      <li><a href="/">Recipes</a></li>
-      <li><a href="/">Planner</a></li>
+      <li><a href="/" className={styles.link}>Inventory</a></li>
+      <li><a href="/" className={styles.link}>Recipes</a></li>
+      <li><a href="/" className={styles.link}>Planner</a></li>
     </ul>
   </nav>
 )
