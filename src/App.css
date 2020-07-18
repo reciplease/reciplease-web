@@ -2,13 +2,9 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 :root {
-    --primary-colour: #ff5641;
-    --secondary-colour: #f37c45;
+    --primary-colour: #383e56;
+    --secondary-colour: #f69e7b;
 }
 
 html, body, #root {

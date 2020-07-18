@@ -1,7 +1,19 @@
 .header {
     background: var(--primary-colour);
-    padding: 1rem;
-    text-align: center;
-    font-size: 1em;
+    padding: 0.5em;
+    font-family: 'Leckerli One', cursive;
+    text-align: left;
+    font-size: 1.5em;
     color: white;
+}
+
+@media (max-width: 600px) {
+    .header {
+        text-align: center;
+    }
+}
+
+.title {
+    margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
 }
