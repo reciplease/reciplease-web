@@ -16,14 +16,17 @@ export default ({ingredients = 8, steps = 5}) => {
   });
   let ingredientsContent = (
     <ul>
-      {ingredientContents.map(ingredientContent => <li>{removePunctuation(ingredientContent).toLowerCase()}</li>)}
+      {ingredientContents
+        .map(removePunctuation)
+        .map(text => text.toLowerCase())
+        .map(ingredientContent => <li key={ingredientContent}>{ingredientContent}</li>)}
     </ul>
   );
 
   let stepContents = loremIpsum({p: steps, avgSentencesPerParagraph: 2, startWithLoremIpsum: false});
   let stepsContent = (
     <ol className={styles.steps}>
-      {stepContents.map(stepContent => <li>{stepContent}</li>)}
+      {stepContents.map(stepContent => <li key={stepContent}>{stepContent}</li>)}
     </ol>
   );
 
