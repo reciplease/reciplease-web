@@ -5,6 +5,7 @@
 :root {
     --primary-colour: #383e56;
     --secondary-colour: #f69e7b;
+    --active: deeppink;
 }
 
 html, body, #root {
