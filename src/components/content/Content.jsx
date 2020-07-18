@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './content.module.css'
-import LoremIpsum from "../LoremIpsum";
+import FakeRecipe from "./FakeRecipe";
 
 export default () => {
   return (
     <article className={styles.article}>
-      <h1>Content</h1>
-      <LoremIpsum paragraphs={10}/>
+      <h1>Recipe: Lorem Ipsum</h1>
+      <FakeRecipe/>
     </article>
   )
 }
