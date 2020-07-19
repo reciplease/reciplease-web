@@ -21,8 +21,8 @@
 }
 
 .bmcButton img {
-    height: 34px;
-    width: 35px;
+    height: 18px;
+    width: 18px;
     margin-bottom: 1px;
     box-shadow: none;
     border: none;
@@ -30,15 +30,14 @@
 }
 
 .bmcButton {
-    padding: 7px 15px 7px 10px;
+    padding: 4px 8px;
     text-decoration: none;
     display: inline-flex;
     color: #ffffff;
     background-color: #79D6B5;
     border-radius: 5px;
     border: 1px solid transparent;
-    letter-spacing: 0.6px;
-    margin: 0 auto;
+    letter-spacing: 1px;
     font-family: 'Cookie', cursive;
 }
 
@@ -50,5 +49,5 @@
 
 .bmcButton span {
     margin-left: 5px;
-    font-size: 28px;
+    font-size: medium;
 }
