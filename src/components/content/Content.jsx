@@ -5,8 +5,7 @@ import FakeRecipe from "./FakeRecipe";
 export default () => {
   return (
     <article className={styles.article}>
-      <h1>Recipe: Lorem Ipsum</h1>
-      <FakeRecipe/>
+      <FakeRecipe steps={20}/>
     </article>
   )
 }
