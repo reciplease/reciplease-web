@@ -17,3 +17,12 @@
     margin-block-start: 0.25em;
     margin-block-end: 0.25em;
 }
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link:hover, .link:active {
+    color: var(--active);
+}

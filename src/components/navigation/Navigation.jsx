@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './navigation.module.css';
+import {Link} from "react-router-dom";
 
 export default () => (
   <nav className={styles.nav}>
     <ul className={styles.list}>
-      <li><a href="/" className={styles.link}>Inventory</a></li>
-      <li><a href="/" className={styles.link}>Recipes</a></li>
-      <li><a href="/" className={styles.link}>Planner</a></li>
+      <li><Link to="/inventory" className={styles.link}>Inventory</Link></li>
+      <li><Link to="/recipes" className={styles.link}>Recipes</Link></li>
+      <li><Link to="/planner" className={styles.link}>Planner</Link></li>
     </ul>
   </nav>
 )
