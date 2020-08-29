@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './content.module.css'
-import FakeRecipe from "./FakeRecipe";
-import {Route, Switch} from "react-router-dom";
+import styles from './content.module.css';
+import FakeRecipe from './FakeRecipe';
+import {Route, Switch} from 'react-router-dom';
 
 export default () => {
   return (
@@ -18,5 +18,5 @@ export default () => {
         </Route>
       </Switch>
     </article>
-  )
+  );
 }
