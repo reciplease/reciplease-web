@@ -4,8 +4,8 @@ import {loremIpsum} from 'react-lorem-ipsum';
 
 const removePunctuation = (text) => {
   return text
-    .replace(/[^\w\s]|_/g, "")
-    .replace(/\s+/g, " ")
+    .replace(/[^\w\s]|_/g, '')
+    .replace(/\s+/g, ' ');
 };
 
 const createListItem = (item, index) => <li key={index}>{item}</li>;

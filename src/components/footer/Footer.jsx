@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './footer.module.css'
+import styles from './footer.module.css';
 
 export default () => {
   return (
@@ -10,5 +10,5 @@ export default () => {
         href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
       </p>
     </footer>
-  )
+  );
 }
