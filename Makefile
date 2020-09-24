@@ -1,6 +1,6 @@
 #!/bin/make
 
-SHELL := "$(shell which bash)"
+RECIPLEASE_WEB_PATH := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 RECIPLEASE_WEB_NAME ?= "Reciplease Web"
 RECIPLEASE_WEB_VERSION ?= "0.1.0"
 RECIPLEASE_WEB_DESCRIPTION ?= "Frontend for Reciplease."
