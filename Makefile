@@ -1,4 +1,4 @@
-#/bin/make
+#!/bin/make
 
 SHELL := "$(shell which bash)"
 RECIPLEASE_WEB_PATH ?= ${PWD}
