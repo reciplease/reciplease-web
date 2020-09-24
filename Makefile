@@ -9,13 +9,11 @@ ENV ?= local
 -include "config/.env.${ENV}"
 export
 
-%: %-frontend
-	@true
-
 .DEFAULT_GOAL := help-frontend
 .PHONY: help-frontend #: Display a list of command and exit.
 help-frontend:
 	@awk 'BEGIN {FS = " ?#?: "; print ""$(RECIPLEASE_WEB_NAME)" "$(RECIPLEASE_WEB_VERSION)"\n"$(RECIPLEASE_WEB_DESCRIPTION)"\n\nUsage: make \033[36m<command>\033[0m\n\nCommands:"} /^.PHONY: ?[a-zA-Z_-]/ { printf "  \033[36m%-10s\033[0m %s\n", $$2, $$3 }' $(MAKEFILE_LIST)
+	@echo ''
 
 .PHONY: init-frontend
 init-frontend:
@@ -41,4 +39,16 @@ tests-frontend:
 run: run-frontend
 run-frontend: init-frontend
 	@cd ${RECIPLEASE_WEB_PATH} && \
-	${YARN} start
+	npm start
+
+.PHONY: scripts-frontend #: Display a list of scripts.
+scripts: scripts-frontend
+scripts-frontend:
+	@echo -e "Usage: make \033[36m<script>\033[0m\n\nScripts:"
+	@ls -1 ${RECIPLEASE_WEB_PATH}/scripts | sed -e "s/.sh//" | xargs printf "  \033[36m%s\033[0m\n"
+
+# Run scripts using make
+%:
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	test -f "scripts/${*}.sh" && \
+	${SHELL} "scripts/${*}.sh"
