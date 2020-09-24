@@ -32,11 +32,13 @@ build-frontend: init-frontend
 	npm run build
 
 .PHONY: tests-frontend
-tests-frontend: init-frontend
+tests: tests-frontend
+tests-frontend:
 	@cd ${RECIPLEASE_WEB_PATH} && \
-	npm test
+	${YARN} test
 
 .PHONY: run-frontend
+run: run-frontend
 run-frontend: init-frontend
 	@cd ${RECIPLEASE_WEB_PATH} && \
-	npm start
+	${YARN} start
