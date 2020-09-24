@@ -10,38 +10,35 @@ ENV ?= local
 export
 
 .DEFAULT_GOAL := help-frontend
-.PHONY: help-frontend #: Display a list of command and exit.
+.PHONY: help-frontend #: List available command.
+help: help-frontend # alias for quick access
 help-frontend:
 	@awk 'BEGIN {FS = " ?#?: "; print ""$(RECIPLEASE_WEB_NAME)" "$(RECIPLEASE_WEB_VERSION)"\n"$(RECIPLEASE_WEB_DESCRIPTION)"\n\nUsage: make \033[36m<command>\033[0m\n\nCommands:"} /^.PHONY: ?[a-zA-Z_-]/ { printf "  \033[36m%-10s\033[0m %s\n", $$2, $$3 }' $(MAKEFILE_LIST)
 	@echo ''
 
-.PHONY: init-frontend
-init-frontend:
-	@cd ${RECIPLEASE_WEB_PATH} && \
-	[[ -d node_modules ]] || npm install
-
-.PHONY: lint-frontend
-lint-frontend: init-frontend
+.PHONY: docs-frontend #: Run documentation.
+docs: docs-frontend # alias for quick access
+docs-frontend:
 	@false
 
-.PHONY: build-frontend
-build-frontend: init-frontend
-	@cd ${RECIPLEASE_WEB_PATH} && \
-	npm run build
+.PHONY: lint-frontend #: Run linting.
+lint: lint-frontend # alias for quick access
+lint-frontend:
+	@false
 
-.PHONY: tests-frontend
-tests: tests-frontend
+.PHONY: tests-frontend #: Run tests.
+tests: tests-frontend # alias for quick access
 tests-frontend:
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	${YARN} test
 
-.PHONY: run-frontend
-run: run-frontend
-run-frontend: init-frontend
+.PHONY: run-frontend #: Run frontend app.
+run: run-frontend # alias for quick access
+run-frontend: 
 	@cd ${RECIPLEASE_WEB_PATH} && \
-	npm start
+	${YARN} start
 
-.PHONY: scripts-frontend #: Display a list of scripts.
+.PHONY: scripts-frontend #: List available scripts.
 scripts: scripts-frontend
 scripts-frontend:
 	@echo -e "Usage: make \033[36m<script>\033[0m\n\nScripts:"
