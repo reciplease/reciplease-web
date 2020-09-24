@@ -6,7 +6,8 @@ RECIPLEASE_WEB_NAME ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_P
 RECIPLEASE_WEB_VERSION ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').version);")"
 RECIPLEASE_WEB_DESCRIPTION ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').description);")"
 
-include .env
+ENV ?= local
+-include "config/.env.${ENV}"
 export
 
 %: %-frontend
