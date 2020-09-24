@@ -1,10 +1,9 @@
 #!/bin/make
 
 SHELL := "$(shell which bash)"
-RECIPLEASE_WEB_PATH ?= ${PWD}
-RECIPLEASE_WEB_NAME ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').name);")"
-RECIPLEASE_WEB_VERSION ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').version);")"
-RECIPLEASE_WEB_DESCRIPTION ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').description);")"
+RECIPLEASE_WEB_NAME ?= "Reciplease Web"
+RECIPLEASE_WEB_VERSION ?= "0.1.0"
+RECIPLEASE_WEB_DESCRIPTION ?= "Frontend for Reciplease."
 
 ENV ?= local
 -include "config/.env.${ENV}"
