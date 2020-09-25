@@ -42,6 +42,7 @@
     "@babel/preset-react": "^7.10.4",
     "@storybook/cli": "^6.0.21",
     "@storybook/react": "^6.0.21",
+    "lerna": "^3.22.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   }

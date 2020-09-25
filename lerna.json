@@ -1,0 +1,8 @@
+{
+  "learna": "3.13.0",
+  "npmClient": "yarn",
+  "packages": [
+    "packages/**/*"
+  ],
+  "version": "0.0.0"
+}
