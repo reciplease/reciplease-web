@@ -2,6 +2,7 @@
   "private": true,
   "name": "reciplease-client",
   "version": "0.1.0",
+  "description": "Frontend client for Reciplease.",
   "scripts": {
     "start": "cross-env PORT=${RECIPLEASE_WEB_PORT} react-scripts start",
     "build": "react-scripts build",

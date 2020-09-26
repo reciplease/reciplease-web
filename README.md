@@ -26,11 +26,11 @@ The main parts of the projects are:
 	- @reciplease/styles: Customisable themes engine.
 		- dark
 		- light
-	- @reciplease/i18n: Customisable locales engine.
+	- @reciplease/locales: Customisable locales engine.
 		- en_UK
 		- en_US
 	- @reciplease/services: Reuseable Data Layer.
-	- @reciplease/client: Frontend App.
+	- @reciplease/client: Frontend client.
 		- public
 		- src
 	- @reciplease/utils: Reuseable utilities.
