@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "reciplease-web",
+  "name": "reciplease-client",
   "version": "0.1.0",
   "scripts": {
     "start": "cross-env PORT=${RECIPLEASE_WEB_PORT} react-scripts start",
