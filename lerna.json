@@ -1,8 +1,9 @@
 {
   "learna": "3.13.0",
-  "npmClient": "yarn",
   "packages": [
-    "packages/**/*"
+    "packages/*"
   ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "version": "0.0.0"
 }
