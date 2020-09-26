@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "prebuild": "lerna bootstrap",
+    "postinstall": "lerna bootstrap",
     "build": "lerna run build --stream",
-    "start": "lerna run start --stream",
+    "start": "lerna run start",
     "start:storybook": "start-storybook -p ${STORYBOOK_PORT:=39000} -c libs/storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "lerna run clean",
