@@ -16,15 +16,17 @@ help-frontend:
 	@awk 'BEGIN {FS = " ?#?: "; print ""$(RECIPLEASE_WEB_NAME)" "$(RECIPLEASE_WEB_VERSION)"\n"$(RECIPLEASE_WEB_DESCRIPTION)"\n\nUsage: make \033[36m<command>\033[0m\n\nCommands:"} /^.PHONY: ?[a-zA-Z_-]/ { printf "  \033[36m%-10s\033[0m %s\n", $$2, $$3 }' $(MAKEFILE_LIST)
 	@echo ''
 
-.PHONY: docs-frontend #: Run documentation.
+.PHONY: docs-frontend #: Run documentation using Storybook.
 docs: docs-frontend # alias for quick access
 docs-frontend:
-	@false
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	${YARN} start:storybook
 
 .PHONY: lint-frontend #: Run linting.
 lint: lint-frontend # alias for quick access
 lint-frontend:
-	@${YARN} lint
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	${YARN} lint
 
 .PHONY: tests-frontend #: Run tests.
 tests: tests-frontend # alias for quick access
