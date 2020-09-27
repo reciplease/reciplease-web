@@ -1,0 +1,19 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container > *:nth-child(n) {
+    flex: 1 0 auto;
+}
+
+.container > *:first-child {
+    flex: initial;
+    flex-shrink: 0;
+}
+
+.container > *:last-child {
+    flex: initial;
+    flex-shrink: 0;
+}

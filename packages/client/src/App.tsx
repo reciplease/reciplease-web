@@ -1,21 +1,24 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import './App.css';
-import Header from './components/header/Header';
-import Main from './components/main/Main';
-import Footer from './components/footer/Footer';
-import Layout from './components/layout/Layout';
-import {BrowserRouter} from "react-router-dom";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Layout>
-        <Header/>
-        <Main/>
-        <Footer/>
-      </Layout>
-    </BrowserRouter>
-  )
+// import useCachedResources from './hooks/useCachedResources';
+// import useColorScheme from './hooks/useColorScheme';
+// import Navigation from './navigation';
+
+export default function App() {
+  // const isLoadingComplete = useCachedResources();
+  // const colorScheme = useColorScheme();
+
+  // if (!isLoadingComplete) {
+  //   return null;
+  // } else {
+  //  return (
+  //    <SafeAreaProvider>
+  //      <Navigation colorScheme={colorScheme} />
+  //      <StatusBar />
+  //    </SafeAreaProvider>
+  //  );
+    return (<SafeAreaProvider></SafeAreaProvider>);
+  }
 }
-
-export default App;
