@@ -24,7 +24,7 @@ docs-frontend:
 .PHONY: lint-frontend #: Run linting.
 lint: lint-frontend # alias for quick access
 lint-frontend:
-	@false
+	@${YARN} lint
 
 .PHONY: tests-frontend #: Run tests.
 tests: tests-frontend # alias for quick access
