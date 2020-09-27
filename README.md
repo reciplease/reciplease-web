@@ -42,3 +42,7 @@ The main parts of the projects are:
 - scripts: (submodule)
 - tests: (optional)
 ```
+
+## Known Limitations
+
+As per the documentation, `expo-yarn-workspaces` work only on macOS and UNIX based systems, Windows is not supported.

@@ -5,12 +5,12 @@
   "main": "__generated__/AppEntry.js",
   "scripts": {
     "postinstall": "expo-yarn-workspaces postinstall",
+    "test": "jest --watchAll",
     "start": "expo start",
+    "start:web": "expo start --web",
     "start:android": "expo start --android",
     "start:ios": "expo start --ios",
-    "start:web": "expo start --web",
-    "eject": "expo eject",
-    "test": "jest --watchAll"
+    "eject": "expo eject"
   },
   "jest": {
     "preset": "jest-expo"
@@ -23,12 +23,14 @@
     "@react-navigation/stack": "^5.9.0",
     "expo": "~39.0.2",
     "expo-asset": "~8.2.0",
+    "expo-cli": "^3.27.10",
     "expo-constants": "~9.2.0",
     "expo-font": "~8.3.0",
     "expo-linking": "^1.0.1",
     "expo-splash-screen": "~0.6.1",
     "expo-status-bar": "~1.0.2",
     "expo-web-browser": "~8.5.0",
+    "metro-core": "^0.63.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
@@ -36,5 +38,8 @@
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
     "react-native-web": "~0.13.12"
+  },
+  "devDependencies": {
+    "expo-yarn-workspaces": "^1.2.1"
   }
 }

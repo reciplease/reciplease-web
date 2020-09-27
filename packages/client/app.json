@@ -1,5 +1,6 @@
 {
   "expo": {
+    "privacy": "public",
     "name": "reciplease-client",
     "slug": "reciplease",
     "version": "0.1.0",
@@ -18,11 +19,22 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "web": {
+      "favicon": "../assets/src/images/favicon.png"
+    },
+    "android": {
+      "package": "com.reciplease.android"
+    },
     "ios": {
       "supportsTablet": true
     },
-    "web": {
-      "favicon": "../assets/src/images/favicon.png"
+    "packagerOpts": {
+      "config": "metro.config.js"
     }
   }
 }
