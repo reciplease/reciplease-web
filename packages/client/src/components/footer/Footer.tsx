@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './footer.module.css';
 
-export default () => {
+const FooterComponent : React.FunctionComponent = () => {
   return (
     <footer className={styles.footer}>
       <p>Reciplease &copy; Rhys Saldanha</p>
@@ -12,3 +12,5 @@ export default () => {
     </footer>
   );
 }
+
+export default FooterComponent;

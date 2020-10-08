@@ -3,7 +3,7 @@ import styles from './content.module.css';
 import FakeRecipe from './FakeRecipe';
 import {Route, Switch} from 'react-router-dom';
 
-export default () => {
+const Content : React.FunctionComponent = () => {
   return (
     <article className={styles.article}>
       <Switch>
@@ -20,3 +20,5 @@ export default () => {
     </article>
   );
 }
+
+export default Content;

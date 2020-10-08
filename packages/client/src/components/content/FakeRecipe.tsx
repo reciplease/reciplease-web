@@ -10,14 +10,14 @@ const removePunctuation = (text) => {
 
 const createListItem = (item, index) => <li key={index}>{item}</li>;
 
-export default ({ingredients = 8, steps = 5}) => {
-  let ingredientContents = loremIpsum({
+const FakeRecipe : React.FunctionComponent = ({ingredients = 8, steps = 5}) => {
+  const ingredientContents = loremIpsum({
     p: ingredients,
     avgWordsPerSentence: 1,
     avgSentencesPerParagraph: 1,
     startWithLoremIpsum: false
   });
-  let stepContents = loremIpsum({
+  const stepContents = loremIpsum({
     p: steps,
     avgSentencesPerParagraph: 2,
     startWithLoremIpsum: false
@@ -40,3 +40,5 @@ export default ({ingredients = 8, steps = 5}) => {
     </>
   );
 }
+
+export default FakeRecipe;
