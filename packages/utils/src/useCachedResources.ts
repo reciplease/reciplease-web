@@ -3,7 +3,7 @@ import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
 
-export default function useCachedResources() {
+function useCachedResources() : boolean {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
 
   // Load any resources or data that we need prior to rendering the app
@@ -31,3 +31,5 @@ export default function useCachedResources() {
 
   return isLoadingComplete;
 }
+
+export default useCachedResources;
