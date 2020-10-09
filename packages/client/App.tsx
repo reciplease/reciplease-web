@@ -19,7 +19,7 @@ function App() : React.FunctionComponent {
    return (
      <SafeAreaProvider>
        <StatusBar />
-       <Text>BRB Just Having Breakfast</Text>
+       <Text>Hello World</Text>
      </SafeAreaProvider>
    );
   }
