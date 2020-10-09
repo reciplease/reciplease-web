@@ -6,7 +6,7 @@ import Colors from '../constants/Colors';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
-export default function EditScreenInfo({ path }: { path: string }) {
+function EditScreenInfo({ path }: { path: string }) : React.FunctionComponent {
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -35,7 +35,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
       <View style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
           <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
+            Tap here if your app doesn&apos;t automatically update after making changes
           </Text>
         </TouchableOpacity>
       </View>
@@ -106,3 +106,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+export default EditScreenInfo;

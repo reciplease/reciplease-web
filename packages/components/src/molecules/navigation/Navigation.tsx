@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './navigation.module.css';
 import {Link} from 'react-router-dom';
 
-export default () => (
+const NavigationComponent : React.FunctionComponent = () => (
   <nav className={styles.nav}>
     <ul className={styles.list}>
       <li><Link to="/inventory" className={styles.link}>Inventory</Link></li>
@@ -11,3 +11,5 @@ export default () => (
     </ul>
   </nav>
 )
+
+export default NavigationComponent;
