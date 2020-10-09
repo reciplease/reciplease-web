@@ -1,5 +1,7 @@
 # .gitignore
 
+lib
+
 /.pnp
 .pnp.js
 
