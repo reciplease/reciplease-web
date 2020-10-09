@@ -11,8 +11,10 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
-export default function BottomTabNavigator() {
+const BottomTabNavigator : BottomTabParamList = () => {
   const colorScheme = useColorScheme();
+  const TabOneIcon = (props: { color : string }) => <TabBarIcon name="ios-code" color={props.color} />;
+  const TabTwoIcon = (props: { color : string }) => <TabBarIcon name="ios-code" color={props.color} />;
 
   return (
     <BottomTab.Navigator
@@ -22,14 +24,14 @@ export default function BottomTabNavigator() {
         name="TabOne"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: TabOneIcon,
         }}
       />
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: TabTwoIcon,
         }}
       />
     </BottomTab.Navigator>
@@ -71,3 +73,5 @@ function TabTwoNavigator() {
     </TabTwoStack.Navigator>
   );
 }
+
+export default BottomTabNavigator;
