@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Frontend client for Reciplease.",
   "scripts": {
-    "start": "cross-env PORT=${RECIPLEASE_WEB_PORT} react-scripts start",
+    "start": "cross-env PORT=${RECIPLEASE_WEB_PORT} SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
