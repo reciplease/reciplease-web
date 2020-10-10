@@ -1,5 +1,10 @@
 {
   "name": "@reciplease/views",
   "version": "0.1.0",
-  "description": "Reuseable UI Screens for Reciplease."
+  "description": "Reuseable UI Screens for Reciplease.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "lint:types": "tsc",
+    "build": "tsc --build tsconfig.json"
+  }
 }

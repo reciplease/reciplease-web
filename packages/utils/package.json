@@ -1,5 +1,10 @@
 {
   "name": "@reciplease/utils",
   "version": "0.1.0",
-  "description": "Reuseable utilities for Reciplease."
+  "description": "Reuseable utilities for Reciplease.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "lint:types": "tsc",
+    "build": "tsc --build tsconfig.json"
+  }
 }
