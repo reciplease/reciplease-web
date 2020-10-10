@@ -5,6 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "lint:types": "tsc",
-    "build": "tsc --build tsconfig.json"
+    "build": "yarn build:tsc && yarn build:css",
+    "build:css": "copyfiles -u 1 ./src/**/*.css ./lib",
+    "build:tsc": "tsc --build tsconfig.json"
   }
 }

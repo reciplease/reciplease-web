@@ -39,10 +39,12 @@
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@types/react-native": "^0.63.22",
+    "@types/react-router-dom": "^5.1.6",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
     "babel-loader": "^8.1.0",
     "babel-preset-expo": "^8.3.0",
+    "copyfiles": "^2.4.0",
     "cross-env": "^7.0.2",
     "eslint": "^7.10.0",
     "eslint-config-react-app": "^5.2.1",
@@ -53,7 +55,8 @@
     "eslint-plugin-react-hooks": "^4.1.2",
     "jest-expo": "^39.0.0",
     "lerna": "^3.22.1",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "typescript-plugin-css-modules": "^2.7.0"
   },
   "resolutions": {},
   "workspaces": {
