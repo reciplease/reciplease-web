@@ -1,0 +1,12 @@
+{
+    "include":[
+        "src"
+    ],
+    "extends":"../../internals/typescript/tsconfig.json",
+    "compilerOptions":{
+        "outDir":"lib",
+        "declarationDir":"lib",
+        "skipLibCheck": true,
+        "moduleResolution": "node"
+    }
+}
