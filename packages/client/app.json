@@ -28,7 +28,7 @@
       "favicon": "../assets/src/images/favicon.png"
     },
     "android": {
-      "package": "com.reciplease.android"
+      "package": "org.reciplease.android"
     },
     "ios": {
       "supportsTablet": true
