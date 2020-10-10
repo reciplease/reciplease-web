@@ -5,7 +5,7 @@
   "description": "",
   "scripts": {
     "postinstall": "lerna bootstrap && lerna run postinstall",
-    "lint": "eslint './packages/views/src/**/*.{js,ts,tsx}'",
+    "lint": "eslint './packages/**/src/**/*.{js,ts,tsx}'",
     "lint:fix": "eslint './packages/**/src/**/*.{js,ts,tsx}' --fix",
     "lint:types": "lerna run lint:types",
     "lint:types:watch": "lerna run --scope=@reciplease/components lint:types:watch",
