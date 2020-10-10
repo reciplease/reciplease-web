@@ -1,23 +1,29 @@
 import React from 'react';
-import styles from './fakerecipe.module.css';
 import {loremIpsum} from 'react-lorem-ipsum';
 
-const removePunctuation = (text) => {
+import styles from './fakerecipe.module.css';
+
+const removePunctuation = (text : string) => {
   return text
     .replace(/[^\w\s]|_/g, '')
     .replace(/\s+/g, ' ');
 };
 
-const createListItem = (item, index) => <li key={index}>{item}</li>;
+const createListItem = (item : string, index : number) => <li key={index}>{item}</li>;
 
-const FakeRecipe : React.FunctionComponent = ({ingredients = 8, steps = 5}) => {
-  const ingredientContents = loremIpsum({
+type FakeRecipeProps = {
+  ingredients? : number,
+  steps? : number
+}
+
+const FakeRecipe : React.FunctionComponent<FakeRecipeProps> = ({ingredients = 8, steps = 5}) => {
+  const ingredientContents : string[] = loremIpsum({
     p: ingredients,
     avgWordsPerSentence: 1,
     avgSentencesPerParagraph: 1,
     startWithLoremIpsum: false
   });
-  const stepContents = loremIpsum({
+  const stepContents : string[] = loremIpsum({
     p: steps,
     avgSentencesPerParagraph: 2,
     startWithLoremIpsum: false
