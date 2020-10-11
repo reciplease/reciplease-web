@@ -1,5 +1,5 @@
 {
-  "name": "@reciplease/client",
+  "name": "@reciplease/nativeclient",
   "version": "0.1.0",
   "description": "",
   "main": "__generated__/AppEntry.js",
