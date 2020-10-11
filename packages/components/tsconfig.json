@@ -2,6 +2,9 @@
     "include":[
         "src"
     ],
+    "exclude":[
+        "src/organisms"
+    ],
     "extends":"../../internals/typescript/tsconfig.json",
     "compilerOptions":{
         "outDir":"lib",
