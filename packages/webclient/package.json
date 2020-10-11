@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "reciplease-client",
+  "name": "@reciplease/webclient",
   "version": "0.1.0",
-  "description": "Frontend client for Reciplease.",
+  "description": "Frontend (Web) client for Reciplease.",
   "scripts": {
     "start": "cross-env PORT=${RECIPLEASE_WEB_PORT} SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "react-scripts build",
