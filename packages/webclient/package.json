@@ -5,7 +5,7 @@
   "description": "Frontend (Web) client for Reciplease.",
   "scripts": {
     "start": "cross-env PORT=${RECIPLEASE_WEB_PORT} SKIP_PREFLIGHT_CHECK=true react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
