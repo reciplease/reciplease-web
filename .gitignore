@@ -2,7 +2,8 @@
 
 /.pnp
 .pnp.js
-.idea
+.idea/
+config/
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,macos,react,reactnative,yarn
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,macos,react,reactnative,yarn
