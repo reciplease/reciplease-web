@@ -38,14 +38,14 @@ run-frontend:
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	${YARN} start
 
-.PHONY: scripts-frontend #: List available scripts.
-scripts: scripts-frontend
-scripts-frontend:
-	@echo -e "Usage: make \033[36m<script>\033[0m\n\nScripts:"
-	@ls -1 ${RECIPLEASE_WEB_PATH}/scripts | sed -e "s/.sh//" | xargs printf "  \033[36m%s\033[0m\n"
-
 # Run scripts using make
 %:
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	test -f "scripts/${*}.sh" && \
 	${SHELL} "scripts/${*}.sh"
+
+.PHONY: init-frontend #: Download Javascript dependencies.
+init: init-frontend
+init-frontend:
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	${YARN} install
