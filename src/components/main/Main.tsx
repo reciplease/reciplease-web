@@ -4,8 +4,8 @@ import Navigation from '../navigation/Navigation';
 import Content from '../content/Content';
 
 export default () => (
-  <main className={styles.main}>
-    <Navigation/>
-    <Content/>
-  </main>
+    <main className={styles.main}>
+        <Navigation/>
+        <Content/>
+    </main>
 )
