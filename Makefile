@@ -6,7 +6,7 @@ RECIPLEASE_WEB_VERSION ?= "0.1.0"
 RECIPLEASE_WEB_DESCRIPTION ?= "Frontend for Reciplease."
 
 ENV ?= local
--include "config/.env.${ENV}"
+include config/.env.$(ENV)
 export
 
 .DEFAULT_GOAL := help-frontend
@@ -14,7 +14,6 @@ export
 help: help-frontend # alias for quick access
 help-frontend:
 	@awk 'BEGIN {FS = " ?#?: "; print ""$(RECIPLEASE_WEB_NAME)" "$(RECIPLEASE_WEB_VERSION)"\n"$(RECIPLEASE_WEB_DESCRIPTION)"\n\nUsage: make \033[36m<command>\033[0m\n\nCommands:"} /^.PHONY: ?[a-zA-Z_-]/ { printf "  \033[36m%-10s\033[0m %s\n", $$2, $$3 }' $(MAKEFILE_LIST)
-	@echo ''
 
 .PHONY: docs-frontend #: Run documentation.
 docs: docs-frontend # alias for quick access
@@ -34,15 +33,15 @@ tests-frontend:
 
 .PHONY: run-frontend #: Run frontend app.
 run: run-frontend # alias for quick access
-run-frontend: 
+run-frontend:
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	${YARN} start
 
 # Run scripts using make
 %:
 	@cd ${RECIPLEASE_WEB_PATH} && \
-	test -f "scripts/${*}.sh" && \
-	${SHELL} "scripts/${*}.sh"
+	if [[ -f "scripts/${*}.sh" ]]; then \
+	${SHELL} "scripts/${*}.sh"; fi
 
 .PHONY: init-frontend #: Download Javascript dependencies.
 init: init-frontend
