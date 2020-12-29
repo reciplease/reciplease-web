@@ -2,15 +2,14 @@ import React from 'react';
 import styles from './fakerecipe.module.css';
 import {loremIpsum} from 'react-lorem-ipsum';
 
-const removePunctuation = (text: string) => {
-    return text
+const removePunctuation = (text: string): string =>
+    text
         .replace(/[^\w\s]|_/g, '')
         .replace(/\s+/g, ' ');
-};
 
 const createListItem = (item: string, index: number) => <li key={index}>{item}</li>;
 
-export default ({ingredients = 8, steps = 5}) => {
+const FakeRecipe = ({ingredients = 8, steps = 5}) => {
     let ingredientContents = loremIpsum({
         p: ingredients,
         avgWordsPerSentence: 1,
@@ -39,4 +38,6 @@ export default ({ingredients = 8, steps = 5}) => {
             </ol>
         </>
     );
-}
+};
+
+export default FakeRecipe;

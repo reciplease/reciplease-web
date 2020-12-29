@@ -17,7 +17,7 @@ function InventoryItemSummary({item}: InventoryItemSummaryProps) {
     );
 }
 
-export default () => {
+const InventorySummary = () => {
     const items = fetchInventoryList();
     return (
         <>
@@ -26,4 +26,6 @@ export default () => {
             ))}
         </>
     );
-}
+};
+
+export default InventorySummary;

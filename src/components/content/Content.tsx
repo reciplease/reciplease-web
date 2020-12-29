@@ -5,7 +5,7 @@ import {Route, Switch} from 'react-router-dom';
 import InventorySummary from './inventory/InventorySummary';
 import InventoryItem from './inventory/InventoryItem';
 
-export default () => {
+const Content = () => {
     return (
         <article className={styles.article}>
             <Switch>
@@ -30,4 +30,6 @@ export default () => {
             </Switch>
         </article>
     );
-}
+};
+
+export default Content;

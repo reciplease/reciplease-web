@@ -5,9 +5,11 @@ interface InventoryItemUrl {
     id: string;
 }
 
-export default () => {
+const InventoryItem = () => {
     const {id} = useParams<InventoryItemUrl>();
     return (
         <h1>Inventory Item: {id}</h1>
     );
-}
+};
+
+export default InventoryItem;
