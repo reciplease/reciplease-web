@@ -37,14 +37,20 @@ run-frontend:
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	${YARN} start
 
-# Run scripts using make
-%:
-	@cd ${RECIPLEASE_WEB_PATH} && \
-	if [[ -f "scripts/${*}.sh" ]]; then \
-	${SHELL} "scripts/${*}.sh"; fi
-
 .PHONY: init-frontend #: Download Javascript dependencies.
 init: init-frontend
 init-frontend:
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	${YARN} install
+
+.PHONY: build-frontend #: Build deploy artifacts
+build: build-frontend
+build-frontend:
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	${YARN} build
+
+# Run scripts using make
+%:
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	if [[ -f "scripts/${*}.sh" ]]; then \
+	${SHELL} "scripts/${*}.sh"; fi
