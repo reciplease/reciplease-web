@@ -1,44 +1,51 @@
-#/bin/make
+#!/bin/make
 
-SHELL := "$(shell which bash)"
-RECIPLEASE_WEB_PATH ?= ${PWD}
-RECIPLEASE_WEB_NAME ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').name);")"
-RECIPLEASE_WEB_VERSION ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').version);")"
-RECIPLEASE_WEB_DESCRIPTION ?= "$(shell node -e "console.log(require('${RECIPLEASE_WEB_PATH}/package.json').description);")"
+RECIPLEASE_WEB_PATH := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+RECIPLEASE_WEB_NAME ?= "Reciplease Web"
+RECIPLEASE_WEB_VERSION ?= "0.1.0"
+RECIPLEASE_WEB_DESCRIPTION ?= "Frontend for Reciplease."
 
-include .env
+ENV ?= local
+-include "config/.env.${ENV}"
 export
 
-%: %-frontend
-	@true
-
 .DEFAULT_GOAL := help-frontend
-.PHONY: help-frontend #: Display a list of command and exit.
+.PHONY: help-frontend #: List available command.
+help: help-frontend # alias for quick access
 help-frontend:
 	@awk 'BEGIN {FS = " ?#?: "; print ""$(RECIPLEASE_WEB_NAME)" "$(RECIPLEASE_WEB_VERSION)"\n"$(RECIPLEASE_WEB_DESCRIPTION)"\n\nUsage: make \033[36m<command>\033[0m\n\nCommands:"} /^.PHONY: ?[a-zA-Z_-]/ { printf "  \033[36m%-10s\033[0m %s\n", $$2, $$3 }' $(MAKEFILE_LIST)
+	@echo ''
 
-.PHONY: init-frontend
-init-frontend:
-	@cd ${RECIPLEASE_WEB_PATH} && \
-	[[ -d node_modules ]] || npm install
-
-.PHONY: lint-frontend
-lint-frontend: init-frontend
+.PHONY: docs-frontend #: Run documentation.
+docs: docs-frontend # alias for quick access
+docs-frontend:
 	@false
 
-.PHONY: build-frontend
-build-frontend: init-frontend
-	@cd ${RECIPLEASE_WEB_PATH} && \
-	npm run build
+.PHONY: lint-frontend #: Run linting.
+lint: lint-frontend # alias for quick access
+lint-frontend:
+	@false
 
-.PHONY: tests-frontend
-tests: tests-frontend
+.PHONY: tests-frontend #: Run tests.
+tests: tests-frontend # alias for quick access
 tests-frontend:
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	${YARN} test
 
-.PHONY: run-frontend
-run: run-frontend
-run-frontend: init-frontend
+.PHONY: run-frontend #: Run frontend app.
+run: run-frontend # alias for quick access
+run-frontend: 
 	@cd ${RECIPLEASE_WEB_PATH} && \
 	${YARN} start
+
+# Run scripts using make
+%:
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	test -f "scripts/${*}.sh" && \
+	${SHELL} "scripts/${*}.sh"
+
+.PHONY: init-frontend #: Download Javascript dependencies.
+init: init-frontend
+init-frontend:
+	@cd ${RECIPLEASE_WEB_PATH} && \
+	${YARN} install
