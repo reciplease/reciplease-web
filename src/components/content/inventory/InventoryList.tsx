@@ -1,12 +1,13 @@
 import React from 'react';
 import {useInventoryList} from '../../../api/InventoryService';
 import {Link} from 'react-router-dom';
+import Loading from '../Loading';
 
 const InventoryList = () => {
     const items = useInventoryList();
 
     if (!items) {
-        return <h3>Loading...</h3>;
+        return <Loading/>;
     }
 
     return (

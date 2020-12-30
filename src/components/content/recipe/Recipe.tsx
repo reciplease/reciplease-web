@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 import {useRecipe} from '../../../api/RecipeService';
 import styles from './recipe.module.css';
+import Loading from '../Loading';
 
 interface RecipeUrl {
     uuid: string
@@ -12,7 +13,7 @@ const Recipe = () => {
         const recipe = useRecipe(uuid);
 
         if (!recipe) {
-            return <h3>"Loading..."</h3>;
+            return <Loading/>;
         }
 
         return (

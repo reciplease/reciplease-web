@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {useInventoryItem} from '../../../api/InventoryService';
+import Loading from '../Loading';
 
 interface InventoryItemUrl {
     uuid: string;
@@ -11,7 +12,7 @@ const InventoryItem = () => {
     const item = useInventoryItem(uuid);
 
     if (!item) {
-        return <h3>Loading...</h3>;
+        return <Loading/>;
     }
 
     return (
