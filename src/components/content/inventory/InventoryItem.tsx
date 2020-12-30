@@ -1,5 +1,7 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
+import {InventoryItemSummary} from './InventoryItemSummary';
+import {useInventoryItem} from '../../../api/InventoryService';
 
 interface InventoryItemUrl {
     id: string;
@@ -7,8 +9,9 @@ interface InventoryItemUrl {
 
 const InventoryItem = () => {
     const {id} = useParams<InventoryItemUrl>();
+    const item = useInventoryItem(id);
     return (
-        <h1>Inventory Item: {id}</h1>
+        <InventoryItemSummary item={item}/>
     );
 };
 

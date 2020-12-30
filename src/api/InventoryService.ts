@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 export interface InventoryItem {
     id: string;
     name: string;
@@ -5,8 +7,8 @@ export interface InventoryItem {
     measure: string;
 }
 
-export function fetchInventoryList(): InventoryItem[] {
-    return [
+export const useInventoryList = (): InventoryItem[] => {
+    const [items] = useState([
         {
             id: '1',
             name: 'apple',
@@ -19,5 +21,11 @@ export function fetchInventoryList(): InventoryItem[] {
             amount: 6.0,
             measure: 'ITEMS'
         },
-    ];
-}
+    ]);
+    return items;
+};
+
+export const useInventoryItem = (id: string): InventoryItem => {
+    const items = useInventoryList();
+    return items.find(value => value.id === id) as InventoryItem;
+};
