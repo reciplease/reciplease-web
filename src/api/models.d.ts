@@ -7,6 +7,12 @@ interface InventoryItem {
     expiration: Date;
 }
 
+interface Ingredient {
+    uuid: string;
+    name: string;
+    measure: string;
+}
+
 interface Recipe {
     uuid: string;
     name: string;
