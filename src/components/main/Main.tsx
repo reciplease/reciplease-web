@@ -7,7 +7,7 @@ interface MainProps {
     className?: string
 }
 
-export default ({className}: MainProps) => {
+const Main = ({className}: MainProps) => {
     if (!className) className = '';
 
     return (
@@ -16,4 +16,5 @@ export default ({className}: MainProps) => {
             <Footer/>
         </main>
     );
-}
+};
+export default Main;

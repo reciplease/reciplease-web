@@ -2,8 +2,10 @@ import React from 'react';
 import styles from './content.module.css';
 import FakeRecipe from './FakeRecipe';
 import {Route, Switch} from 'react-router-dom';
+import InventorySummary from './inventory/InventorySummary';
+import InventoryItem from './inventory/InventoryItem';
 
-export default () => {
+const Content = () => {
     return (
         <article className={styles.article}>
             <Switch>
@@ -14,9 +16,20 @@ export default () => {
                     <h1>Planner</h1>
                 </Route>
                 <Route exact path='/inventory'>
-                    <h1>Inventory</h1>
+                    <InventorySummary/>
+                </Route>
+                <Route path='/inventory/:uuid'>
+                    <InventoryItem/>
+                </Route>
+                <Route exact path='/'>
+                    <h1>Welcome</h1>
+                </Route>
+                <Route exact path='*'>
+                    <h1>Oops! This page doesn't exist</h1>
                 </Route>
             </Switch>
         </article>
     );
-}
+};
+
+export default Content;
