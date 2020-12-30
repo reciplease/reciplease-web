@@ -7,7 +7,7 @@ RECIPLEASE_WEB_VERSION ?= "0.1.0"
 RECIPLEASE_WEB_DESCRIPTION ?= "Frontend for Reciplease."
 
 ENV ?= local
-include config/.env.$(ENV)
+-include config/.env.$(ENV)
 export
 
 .DEFAULT_GOAL := help-frontend
