@@ -1,22 +1,26 @@
 import React from 'react';
 import styles from './content.module.css';
-import FakeRecipe from './FakeRecipe';
 import {Route, Switch} from 'react-router-dom';
-import InventorySummary from './inventory/InventorySummary';
+import InventoryList from './inventory/InventoryList';
 import InventoryItem from './inventory/InventoryItem';
+import RecipeList from './recipe/RecipeList';
+import Recipe from './recipe/Recipe';
 
 const Content = () => {
     return (
         <article className={styles.article}>
             <Switch>
                 <Route exact path='/recipes'>
-                    <FakeRecipe steps={20}/>
+                    <RecipeList/>
+                </Route>
+                <Route path='/recipes/:uuid'>
+                    <Recipe/>
                 </Route>
                 <Route exact path='/planner'>
                     <h1>Planner</h1>
                 </Route>
                 <Route exact path='/inventory'>
-                    <InventorySummary/>
+                    <InventoryList/>
                 </Route>
                 <Route path='/inventory/:uuid'>
                     <InventoryItem/>
