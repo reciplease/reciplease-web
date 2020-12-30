@@ -1,4 +1,6 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+
+const API_ROOT = process.env.REACT_APP_API_ROOT
 
 export interface InventoryItem {
     uuid: string;
@@ -10,28 +12,31 @@ export interface InventoryItem {
 }
 
 export const useInventoryList = (): InventoryItem[] => {
-    const [items] = useState([
-        {
-            uuid: '1',
-            ingredientUuid: 'apple-uuid',
-            name: 'apple',
-            amount: 5.0,
-            measure: 'ITEMS',
-            expiration: new Date('2020-12-30')
-        },
-        {
-            uuid: '2',
-            ingredientUuid: 'apple-uuid',
-            name: 'pear',
-            amount: 6.0,
-            measure: 'ITEMS',
-            expiration: new Date('2020-12-30')
-        },
-    ]);
+    const [items, setItems] = useState<InventoryItem[]>([]);
+
+    useEffect(() => {
+        fetch(`${API_ROOT}/api/inventory`, {headers: {Accept: 'application/json'}})
+            .then(response => response.json())
+            .then((response: InventoryItem[]) => {
+                response.forEach(item => item.expiration = new Date(item.expiration));
+                setItems(response);
+            });
+    }, []);
+
     return items;
 };
 
-export const useInventoryItem = (uuid: string): InventoryItem => {
-    const items = useInventoryList();
-    return items.find(value => value.uuid === uuid) as InventoryItem;
+export const useInventoryItem = (uuid: string): InventoryItem | undefined => {
+    const [item, setItem] = useState<InventoryItem | undefined>(undefined);
+
+    useEffect(() => {
+        fetch(`${API_ROOT}/api/inventory/${uuid}`, {headers: {Accept: 'application/json'}})
+            .then(response => response.json())
+            .then((item: InventoryItem) => {
+                item.expiration = new Date(item.expiration);
+                setItem(item);
+            });
+    }, [uuid]);
+
+    return item;
 };

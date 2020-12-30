@@ -18,7 +18,7 @@ const Content = () => {
                 <Route exact path='/inventory'>
                     <InventorySummary/>
                 </Route>
-                <Route path='/inventory/:id'>
+                <Route path='/inventory/:uuid'>
                     <InventoryItem/>
                 </Route>
                 <Route exact path='/'>

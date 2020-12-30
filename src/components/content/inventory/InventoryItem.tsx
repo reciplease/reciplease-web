@@ -4,15 +4,17 @@ import {InventoryItemSummary} from './InventoryItemSummary';
 import {useInventoryItem} from '../../../api/InventoryService';
 
 interface InventoryItemUrl {
-    id: string;
+    uuid: string;
 }
 
 const InventoryItem = () => {
-    const {id} = useParams<InventoryItemUrl>();
-    const item = useInventoryItem(id);
-    return (
-        <InventoryItemSummary item={item}/>
-    );
+    const {uuid} = useParams<InventoryItemUrl>();
+    const item = useInventoryItem(uuid);
+    if (item) {
+        return <InventoryItemSummary item={item}/>;
+    } else {
+        return <h3>Loading...</h3>;
+    }
 };
 
 export default InventoryItem;
