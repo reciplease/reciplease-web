@@ -5,11 +5,13 @@ import {InventoryItemSummary} from './InventoryItemSummary';
 const InventorySummary = () => {
     const items = useInventoryList();
     return (
-        <>
+        <ul>
             {items.map(item => (
-                <InventoryItemSummary key={item.id} item={item}/>
+                <li key={item.uuid}>
+                    <InventoryItemSummary key={item.uuid} item={item}/>
+                </li>
             ))}
-        </>
+        </ul>
     );
 };
 

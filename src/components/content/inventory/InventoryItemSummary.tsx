@@ -9,10 +9,8 @@ interface InventoryItemSummaryProps {
 export function InventoryItemSummary({item}: InventoryItemSummaryProps) {
     return (
         <>
-            <Link to={'/inventory/' + item.id}>
-                <h2>{item.name}</h2>
-            </Link>
-            {item.amount} {item.measure.toLowerCase()}
+            <Link to={'/inventory/' + item.uuid}>{item.name}</Link><br/>
+            {item.amount} {item.measure.toLowerCase()}, expires on {item.expiration.toDateString()}
         </>
     );
 }
