@@ -1,18 +1,8 @@
 import {useEffect, useState} from 'react';
+import {API_ROOT} from './config';
 
-const API_ROOT = process.env.REACT_APP_API_ROOT
-
-export interface InventoryItem {
-    uuid: string;
-    ingredientUuid: string;
-    name: string;
-    amount: number;
-    measure: string;
-    expiration: Date;
-}
-
-export const useInventoryList = (): InventoryItem[] => {
-    const [items, setItems] = useState<InventoryItem[]>([]);
+export const useInventoryList = (): InventoryItem[] | undefined => {
+    const [items, setItems] = useState<InventoryItem[] | undefined>(undefined);
 
     useEffect(() => {
         fetch(`${API_ROOT}/api/inventory`, {headers: {Accept: 'application/json'}})
