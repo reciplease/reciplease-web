@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './navigation.module.css';
+import styles from './navbar.module.css';
 import {Link} from 'react-router-dom';
 
-interface NavigationProps {
+interface NavbarProps {
     className?: string;
 }
 
-const Navigation = ({className}: NavigationProps) => {
+const Navbar = ({className}: NavbarProps) => {
     if (!className) className = '';
 
     return (
@@ -20,4 +20,4 @@ const Navigation = ({className}: NavigationProps) => {
     );
 };
 
-export default Navigation;
+export default Navbar;
