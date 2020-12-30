@@ -1,11 +1,19 @@
 import React from 'react';
 import styles from './main.module.css';
-import Navigation from '../navigation/Navigation';
 import Content from '../content/Content';
+import Footer from '../footer/Footer';
 
-export default () => (
-    <main className={styles.main}>
-        <Navigation/>
-        <Content/>
-    </main>
-)
+interface MainProps {
+    className?: string
+}
+
+export default ({className}: MainProps) => {
+    if (!className) className = '';
+
+    return (
+        <main className={`${className} ${styles.main}`}>
+            <Content/>
+            <Footer/>
+        </main>
+    );
+}

@@ -1,15 +1,10 @@
 .main {
     display: flex;
+    flex-direction: column;
 }
 
 .main:after {
+    clear: both;
     content: "";
     display: table;
-    clear: both;
-}
-
-@media (max-width: 600px) {
-    .main {
-        flex-direction: column;
-    }
 }

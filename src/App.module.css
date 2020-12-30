@@ -1,0 +1,10 @@
+.stickBottom {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.content {
+    padding-bottom: var(--navbarheight);
+}

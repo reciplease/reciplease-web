@@ -1,17 +1,29 @@
 .nav {
     background: var(--secondary-colour);
-    padding: 0.5rem;
-}
-
-@media (max-width: 600px) {
-    .nav {
-        flex-grow: 1;
-    }
+    height: var(--navbarheight);
+    flex-grow: 1;
 }
 
 .list {
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
     padding: 0;
+    margin: 5px;
+}
+
+.list > li {
+    flex-grow: 1;
+}
+
+/*Add rounded edge to beginning of first link*/
+.list > li:first-of-type > .link {
+    border-radius: 1rem 0 0 1rem;
+}
+
+/*Add rounded edge to end of last link*/
+.list > li:last-of-type > .link {
+    border-radius: 0 1rem 1rem 0;
 }
 
 .link {
@@ -34,12 +46,4 @@
 
 .link:hover, .link:active {
     background-color: var(--active);
-}
-
-.list > li:first-of-type > .link {
-    border-radius: 1rem 1rem 0 0;
-}
-
-.list > li:last-of-type > .link {
-    border-radius: 0 0 1rem 1rem;
 }

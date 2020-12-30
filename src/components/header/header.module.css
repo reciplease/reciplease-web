@@ -2,15 +2,9 @@
     background: var(--primary-colour);
     padding: 0.5em;
     font-family: 'Leckerli One', cursive;
-    text-align: left;
+    text-align: center;
     font-size: 1.5em;
     color: white;
-}
-
-@media (max-width: 600px) {
-    .header {
-        text-align: center;
-    }
 }
 
 .title {
