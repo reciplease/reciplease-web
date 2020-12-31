@@ -1,7 +1,7 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
-import {InventoryItemSummary} from './InventoryItemSummary';
+import {Link, useParams} from 'react-router-dom';
 import {useInventoryItem} from '../../../api/InventoryService';
+import Loading from '../Loading';
 
 interface InventoryItemUrl {
     uuid: string;
@@ -10,11 +10,17 @@ interface InventoryItemUrl {
 const InventoryItem = () => {
     const {uuid} = useParams<InventoryItemUrl>();
     const item = useInventoryItem(uuid);
-    if (item) {
-        return <InventoryItemSummary item={item}/>;
-    } else {
-        return <h3>Loading...</h3>;
+
+    if (!item) {
+        return <Loading/>;
     }
+
+    return (
+        <>
+            <Link to={'/inventory/' + item.uuid}>{item.name}</Link><br/>
+            {item.amount} {item.measure.toLowerCase()}, expires on {item.expiration.toDateString()}
+        </>
+    );
 };
 
 export default InventoryItem;
