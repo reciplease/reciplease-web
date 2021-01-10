@@ -1,8 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {API_ROOT} from './config';
+import {useRecoilState} from 'recoil';
+import * as atoms from '../state/atoms';
 
 export const useRecipeList = (): Recipe[] | undefined => {
-    const [items, setItems] = useState<Recipe[] | undefined>(undefined);
+    const [items, setItems] = useRecoilState(atoms.recipes);
 
     useEffect(() => {
         fetch(`${API_ROOT}/api/recipes`, {headers: {Accept: 'application/json'}})
@@ -14,7 +16,7 @@ export const useRecipeList = (): Recipe[] | undefined => {
 };
 
 export const useRecipe = (uuid: string): Recipe | undefined => {
-    const [recipe, setRecipe] = useState<Recipe | undefined>(undefined);
+    const [recipe, setRecipe] = useRecoilState(atoms.recipe(uuid));
 
     useEffect(() => {
         fetch(`${API_ROOT}/api/recipes/${uuid}`, {headers: {Accept: 'application/json'}})

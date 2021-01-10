@@ -1,8 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {API_ROOT} from './config';
+import {useRecoilState} from 'recoil';
+import * as atoms from '../state/atoms';
 
 export const useInventoryList = (): InventoryItem[] | undefined => {
-    const [items, setItems] = useState<InventoryItem[] | undefined>(undefined);
+    const [items, setItems] = useRecoilState(atoms.inventoryItems);
 
     useEffect(() => {
         fetch(`${API_ROOT}/api/inventory`, {headers: {Accept: 'application/json'}})
@@ -17,7 +19,7 @@ export const useInventoryList = (): InventoryItem[] | undefined => {
 };
 
 export const useInventoryItem = (uuid: string): InventoryItem | undefined => {
-    const [item, setItem] = useState<InventoryItem | undefined>(undefined);
+    const [item, setItem] = useRecoilState(atoms.inventoryItem(uuid));
 
     useEffect(() => {
         fetch(`${API_ROOT}/api/inventory/${uuid}`, {headers: {Accept: 'application/json'}})
