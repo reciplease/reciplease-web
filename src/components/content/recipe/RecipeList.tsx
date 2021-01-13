@@ -1,14 +1,9 @@
 import React from 'react';
-import {useRecipeList} from '../../../api/RecipeService';
 import {Link} from 'react-router-dom';
-import Loading from '../Loading';
+import {useRecipes} from '../../../api';
 
 const RecipeList = () => {
-    const recipeList = useRecipeList();
-
-    if (!recipeList) {
-        return <Loading/>;
-    }
+    const recipeList = useRecipes();
 
     return (
         <>

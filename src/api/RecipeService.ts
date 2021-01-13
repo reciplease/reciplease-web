@@ -1,28 +1,22 @@
-import {useEffect} from 'react';
 import {API_ROOT} from './config';
-import {useRecoilState} from 'recoil';
-import * as atoms from '../state/atoms';
+import {selector, selectorFamily} from 'recoil';
 
-export const useRecipeList = (): Recipe[] | undefined => {
-    const [items, setItems] = useRecoilState(atoms.recipes);
-
-    useEffect(() => {
-        fetch(`${API_ROOT}/api/recipes`, {headers: {Accept: 'application/json'}})
-            .then(response => response.json())
-            .then((response: Recipe[]) => setItems(response));
-    }, [setItems]);
-
-    return items;
+const getRecipes = async (): Promise<Recipe[]> => {
+    const response = await fetch(`${API_ROOT}/api/recipes`, {headers: {Accept: 'application/json'}});
+    return await response.json();
 };
 
-export const useRecipe = (uuid: string): Recipe | undefined => {
-    const [recipe, setRecipe] = useRecoilState(atoms.recipe(uuid));
+export const recipes = selector<Recipe[]>({
+    key: 'Recipes',
+    get: getRecipes
+});
 
-    useEffect(() => {
-        fetch(`${API_ROOT}/api/recipes/${uuid}`, {headers: {Accept: 'application/json'}})
-            .then(response => response.json())
-            .then((response: Recipe) => setRecipe(response));
-    }, [uuid, setRecipe]);
-
-    return recipe;
+const getRecipe = async (uuid: string): Promise<Recipe> => {
+    const response = await fetch(`${API_ROOT}/api/recipes/${uuid}`, {headers: {Accept: 'application/json'}});
+    return await response.json();
 };
+
+export const recipe = selectorFamily<Recipe, string>({
+    key: 'Recipe',
+    get: uuid => () => getRecipe(uuid)
+});

@@ -1,34 +1,26 @@
-import {useEffect} from 'react';
 import {API_ROOT} from './config';
-import {useRecoilState} from 'recoil';
-import * as atoms from '../state/atoms';
+import {selector, selectorFamily} from 'recoil';
 
-export const useInventoryList = (): InventoryItem[] | undefined => {
-    const [items, setItems] = useRecoilState(atoms.inventoryItems);
-
-    useEffect(() => {
-        fetch(`${API_ROOT}/api/inventory`, {headers: {Accept: 'application/json'}})
-            .then(response => response.json())
-            .then((response: InventoryItem[]) => {
-                response.forEach(item => item.expiration = new Date(item.expiration));
-                setItems(response);
-            });
-    }, [setItems]);
-
-    return items;
+const getInventoryList = async (): Promise<InventoryItem[]> => {
+    const response = await fetch(`${API_ROOT}/api/inventory`, {headers: {Accept: 'application/json'}});
+    const inventoryItems = await response.json();
+    inventoryItems.forEach((item: InventoryItem) => item.expiration = new Date(item.expiration));
+    return inventoryItems;
 };
 
-export const useInventoryItem = (uuid: string): InventoryItem | undefined => {
-    const [item, setItem] = useRecoilState(atoms.inventoryItem(uuid));
+export const inventoryItems = selector<InventoryItem[]>({
+    key: 'InventoryItems',
+    get: getInventoryList
+});
 
-    useEffect(() => {
-        fetch(`${API_ROOT}/api/inventory/${uuid}`, {headers: {Accept: 'application/json'}})
-            .then(response => response.json())
-            .then((item: InventoryItem) => {
-                item.expiration = new Date(item.expiration);
-                setItem(item);
-            });
-    }, [uuid, setItem]);
-
+const getInventoryItem = async (uuid: string): Promise<InventoryItem> => {
+    const response = await fetch(`${API_ROOT}/api/inventory/${uuid}`, {headers: {Accept: 'application/json'}});
+    const item = await response.json();
+    item.expiration = new Date(item.expiration);
     return item;
 };
+
+export const inventoryItem = selectorFamily<InventoryItem, string>({
+    key: 'InventoryItem',
+    get: uuid => () => getInventoryItem(uuid)
+});

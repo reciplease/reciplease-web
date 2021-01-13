@@ -1,16 +1,10 @@
 import React from 'react';
-import {useInventoryList} from '../../../api/InventoryService';
 import {Link} from 'react-router-dom';
-import Loading from '../Loading';
-import {useIngredientList} from '../../../api/IngredientService';
+import {useIngredients, useInventory} from '../../../api';
 
 const InventoryList = () => {
-    const items = useInventoryList();
-    const ingredients = useIngredientList();
-
-    if (!items || !ingredients) {
-        return <Loading/>;
-    }
+    const items = useInventory();
+    const ingredients = useIngredients();
 
     return (
         <>
@@ -18,7 +12,8 @@ const InventoryList = () => {
             <ul>
                 {items.map(item => (
                     <li key={item.uuid}>
-                        <Link to={'/inventory/' + item.uuid}>{item.amount} {item.measure.toLowerCase()} of {item.name}</Link>
+                        <Link
+                            to={'/inventory/' + item.uuid}>{item.amount} {item.measure.toLowerCase()} of {item.name}</Link>
                     </li>
                 ))}
             </ul>

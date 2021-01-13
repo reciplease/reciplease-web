@@ -1,8 +1,7 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
-import {useRecipe} from '../../../api/RecipeService';
+import {useRecipe} from '../../../api';
 import styles from './recipe.module.css';
-import Loading from '../Loading';
 
 interface RecipeUrl {
     uuid: string
@@ -11,10 +10,6 @@ interface RecipeUrl {
 const Recipe = () => {
         const {uuid} = useParams<RecipeUrl>();
         const recipe = useRecipe(uuid);
-
-        if (!recipe) {
-            return <Loading/>;
-        }
 
         return (
             <>
