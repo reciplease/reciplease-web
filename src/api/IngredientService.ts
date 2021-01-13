@@ -1,18 +1,12 @@
-import {useEffect} from 'react';
 import {API_ROOT} from './config';
-import {useRecoilState} from 'recoil';
-import * as atoms from '../state/atoms';
+import {selector} from 'recoil';
 
-export const useIngredientList = (): Ingredient[] | undefined => {
-    const [ingredients, setIngredients] = useRecoilState(atoms.ingredients);
-
-    useEffect(() => {
-        fetch(`${API_ROOT}/api/ingredients`, {headers: {Accept: 'application/json'}})
-            .then(response => response.json())
-            .then((response: Ingredient[]) => {
-                setIngredients(response);
-            });
-    }, [setIngredients]);
-
-    return ingredients;
+const getIngredients = async (): Promise<Ingredient[]> => {
+    const response = await fetch(`${API_ROOT}/api/ingredients`, {headers: {Accept: 'application/json'}});
+    return await response.json();
 };
+
+export const ingredients = selector<Ingredient[]>({
+    key: 'Ingredients',
+    get: getIngredients
+});
