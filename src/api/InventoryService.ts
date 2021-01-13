@@ -1,7 +1,7 @@
 import {API_ROOT} from './config';
 import {selector, selectorFamily} from 'recoil';
 
-const getInventoryList = async (): Promise<InventoryItem[]> => {
+const getInventory = async (): Promise<InventoryItem[]> => {
     const response = await fetch(`${API_ROOT}/api/inventory`, {headers: {Accept: 'application/json'}});
     const inventoryItems = await response.json();
     inventoryItems.forEach((item: InventoryItem) => item.expiration = new Date(item.expiration));
@@ -10,7 +10,7 @@ const getInventoryList = async (): Promise<InventoryItem[]> => {
 
 export const inventoryItems = selector<InventoryItem[]>({
     key: 'InventoryItems',
-    get: getInventoryList
+    get: getInventory
 });
 
 const getInventoryItem = async (uuid: string): Promise<InventoryItem> => {
