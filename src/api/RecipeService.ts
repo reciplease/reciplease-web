@@ -10,7 +10,7 @@ export const useRecipeList = (): Recipe[] | undefined => {
         fetch(`${API_ROOT}/api/recipes`, {headers: {Accept: 'application/json'}})
             .then(response => response.json())
             .then((response: Recipe[]) => setItems(response));
-    }, []);
+    }, [setItems]);
 
     return items;
 };
@@ -22,7 +22,7 @@ export const useRecipe = (uuid: string): Recipe | undefined => {
         fetch(`${API_ROOT}/api/recipes/${uuid}`, {headers: {Accept: 'application/json'}})
             .then(response => response.json())
             .then((response: Recipe) => setRecipe(response));
-    }, [uuid]);
+    }, [uuid, setRecipe]);
 
     return recipe;
 };

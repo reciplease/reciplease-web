@@ -12,7 +12,7 @@ export const useIngredientList = (): Ingredient[] | undefined => {
             .then((response: Ingredient[]) => {
                 setIngredients(response);
             });
-    }, []);
+    }, [setIngredients]);
 
     return ingredients;
 };

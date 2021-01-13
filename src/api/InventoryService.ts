@@ -13,7 +13,7 @@ export const useInventoryList = (): InventoryItem[] | undefined => {
                 response.forEach(item => item.expiration = new Date(item.expiration));
                 setItems(response);
             });
-    }, []);
+    }, [setItems]);
 
     return items;
 };
@@ -28,7 +28,7 @@ export const useInventoryItem = (uuid: string): InventoryItem | undefined => {
                 item.expiration = new Date(item.expiration);
                 setItem(item);
             });
-    }, [uuid]);
+    }, [uuid, setItem]);
 
     return item;
 };
