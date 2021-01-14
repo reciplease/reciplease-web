@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "removeComments": false,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "ES5",
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "declaration": true,
+    "noResolve": false,
+    "moduleResolution":"node",
+    "outDir": ".tmp"
+  },
+  "include": [
+    "src"
+  ]
+}

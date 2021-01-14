@@ -4,11 +4,15 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "yarn workspace @reciplease/web react-scripts start",
+    "preinstall": "gulp",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^10.4.9",
@@ -40,6 +44,9 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
+    "gulp": "4.0.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "typescript": "^4.1.3"
   }
 }

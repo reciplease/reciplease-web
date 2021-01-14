@@ -1,6 +1,6 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
-import {useRecipe} from '../../../api';
+import {useRecipe} from '@reciplease/api';
 import styles from './recipe.module.css';
 
 interface RecipeUrl {

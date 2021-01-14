@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useRecipe = exports.useRecipes = exports.useInventoryItem = exports.useInventory = exports.useIngredients = void 0;
+var recoil_1 = require("recoil");
+var IngredientService_1 = require("./IngredientService");
+var InventoryService_1 = require("./InventoryService");
+var RecipeService_1 = require("./RecipeService");
+var useIngredients = function () { return recoil_1.useRecoilValue(IngredientService_1.ingredients); };
+exports.useIngredients = useIngredients;
+var useInventory = function () { return recoil_1.useRecoilValue(InventoryService_1.inventoryItems); };
+exports.useInventory = useInventory;
+var useInventoryItem = function (uuid) { return recoil_1.useRecoilValue(InventoryService_1.inventoryItem(uuid)); };
+exports.useInventoryItem = useInventoryItem;
+var useRecipes = function () { return recoil_1.useRecoilValue(RecipeService_1.recipes); };
+exports.useRecipes = useRecipes;
+var useRecipe = function (uuid) { return recoil_1.useRecoilValue(RecipeService_1.recipe(uuid)); };
+exports.useRecipe = useRecipe;

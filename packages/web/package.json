@@ -1,0 +1,7 @@
+{
+  "name": "@reciplease/web",
+  "version": "0.1.0",
+  "dependencies": {
+    "@reciplease/api": "0.1.0"
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, useParams} from 'react-router-dom';
-import {useInventoryItem} from '../../../api';
+import {useInventoryItem} from '@reciplease/api';
 
 interface InventoryItemUrl {
     uuid: string;

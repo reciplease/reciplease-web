@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useRecipes} from '../../../api';
+import {useRecipes} from '@reciplease/api';
 
 const RecipeList = () => {
     const recipeList = useRecipes();
