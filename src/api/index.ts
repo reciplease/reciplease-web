@@ -1,7 +1,7 @@
-import {useRecoilValue} from 'recoil';
-import {ingredients} from './IngredientService';
-import {inventoryItem, inventoryItems} from './InventoryService';
-import {recipe, recipes} from './RecipeService';
+import { useRecoilValue } from 'recoil';
+import { ingredients } from './IngredientService';
+import { inventoryItem, inventoryItems } from './InventoryService';
+import { recipe, recipes } from './RecipeService';
 
 export const useIngredients = () => useRecoilValue(ingredients);
 
