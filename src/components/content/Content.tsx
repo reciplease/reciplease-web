@@ -7,6 +7,8 @@ import RecipeList from './recipe/RecipeList';
 import Recipe from './recipe/Recipe';
 import Loading from './Loading';
 import ErrorBoundary from './ErrorBoundary';
+import CreateIngredient from './inventory/CreateIngredient';
+import CreateInventoryItem from './inventory/CreateInventoryItem';
 
 const Content = () => {
   return (
@@ -22,6 +24,12 @@ const Content = () => {
             </Route>
             <Route exact path='/planner'>
               <h1>Planner</h1>
+            </Route>
+            <Route exact path='/ingredients/create'>
+              <CreateIngredient />
+            </Route>
+            <Route exact path='/inventory/create'>
+              <CreateInventoryItem />
             </Route>
             <Route exact path='/inventory'>
               <InventoryList />

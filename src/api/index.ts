@@ -1,7 +1,10 @@
 import { useRecoilValue } from 'recoil';
+import { measures } from './MeasureService';
 import { ingredients } from './IngredientService';
 import { inventoryItem, inventoryItems } from './InventoryService';
 import { recipe, recipes } from './RecipeService';
+
+export const useMeasures = () => useRecoilValue(measures);
 
 export const useIngredients = () => useRecoilValue(ingredients);
 

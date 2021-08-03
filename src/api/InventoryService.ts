@@ -24,3 +24,12 @@ export const inventoryItem = selectorFamily<InventoryItem, string>({
   key: 'InventoryItem',
   get: uuid => () => getInventoryItem(uuid)
 });
+
+export const createInventoryItem = async (createInventoryItem: CreateInventoryItem): Promise<void> => {
+  await fetch(`${API_ROOT}/api/inventory`, {
+    method: 'POST',
+    body: JSON.stringify(createInventoryItem),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  return Promise.resolve();
+};
