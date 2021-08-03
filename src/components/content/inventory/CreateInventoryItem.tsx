@@ -3,7 +3,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { createInventoryItem } from '../../../api/InventoryService';
 import { useIngredients } from '../../../api';
 import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 
 const CreateInventoryItem: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
   const ingredients = useIngredients();
@@ -22,13 +22,9 @@ const CreateInventoryItem: React.FunctionComponent<RouteComponentProps> = ({ his
     history.push('/inventory');
   };
 
-  const onChange = (key: keyof CreateInventoryItem, processor?: (v: string) => any) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const onChange = (key: keyof CreateInventoryItem) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     e.preventDefault();
-    let value: any = e.target.value;
-    if (processor) {
-      value = processor(value);
-    }
-    setInventoryItem({ ...inventoryItem, [key]: value });
+    setInventoryItem({ ...inventoryItem, [key]: e.target.value });
   };
 
   return (
@@ -36,7 +32,8 @@ const CreateInventoryItem: React.FunctionComponent<RouteComponentProps> = ({ his
       <h1>Create Ingredient</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor={'inventory-item-ingredient'}>Ingredient</label>
-        <select id={'inventory-item-ingredient'} value={inventoryItem.ingredientUuid} onChange={onChange('ingredientUuid')}>
+        <select id={'inventory-item-ingredient'} value={inventoryItem.ingredientUuid}
+                onChange={onChange('ingredientUuid')}>
           {ingredientOptions}
         </select>
         <label htmlFor={'inventory-item-amount'}>Amount</label>
