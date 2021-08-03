@@ -10,3 +10,12 @@ export const ingredients = selector<Ingredient[]>({
   key: 'Ingredients',
   get: getIngredients
 });
+
+export const createIngredient = async (createIngredient: CreateIngredient): Promise<void> => {
+  await fetch(`${API_ROOT}/api/ingredients`, {
+    method: 'POST',
+    body: JSON.stringify(createIngredient),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  return Promise.resolve();
+};
