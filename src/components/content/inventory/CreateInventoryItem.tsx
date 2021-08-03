@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { createInventoryItem } from '../../../api/InventoryService';
 import { useIngredients } from '../../../api';
@@ -11,6 +11,10 @@ const CreateInventoryItem: React.FunctionComponent<RouteComponentProps> = ({ his
     expiration: new Date(),
     amount: 0, ingredientUuid: ''
   });
+
+  useEffect(() => {
+    setInventoryItem((i) => ({ ...i, ingredientUuid: ingredients[0].uuid }));
+  }, [ingredients]);
 
   const ingredientOptions = ingredients.map(ingredient => {
     return <option key={ingredient.uuid} value={ingredient.uuid}>{ingredient.name}</option>;
