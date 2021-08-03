@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {RecoilRoot} from 'recoil';
+import { RecoilRoot } from 'recoil';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <RecoilRoot>
-            <App/>
-        </RecoilRoot>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

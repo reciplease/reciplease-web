@@ -4,17 +4,17 @@ import Content from '../content/Content';
 import Footer from '../footer/Footer';
 
 interface MainProps {
-    className?: string
+  className?: string;
 }
 
-const Main = ({className}: MainProps) => {
-    if (!className) className = '';
+const Main = ({ className }: MainProps) => {
+  if (!className) className = '';
 
-    return (
-        <main className={`${className} ${styles.main}`}>
-            <Content/>
-            <Footer/>
-        </main>
-    );
+  return (
+    <main className={`${className} ${styles.main}`}>
+      <Content />
+      <Footer />
+    </main>
+  );
 };
 export default Main;
