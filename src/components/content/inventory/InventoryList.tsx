@@ -25,6 +25,9 @@ const InventoryList = () => {
           </li>
         ))}
       </ul>
+      <Link to={'/ingredients/create'}>Create Ingredient</Link>
+      <br/>
+      <Link to={'/inventory/create'}>Create Inventory Item</Link>
     </>
   );
 };
