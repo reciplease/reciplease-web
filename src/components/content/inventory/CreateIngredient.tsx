@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useMeasures } from '../../../api';
 import { createIngredient } from '../../../api/IngredientService';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 
 const CreateIngredient: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
   const [ingredient, setIngredient] = useState<CreateIngredient>({ measure: '', name: '' });
@@ -42,4 +42,4 @@ const CreateIngredient: React.FunctionComponent<RouteComponentProps> = ({ histor
   );
 };
 
-export default withRouter(CreateIngredient);
+export default CreateIngredient;
